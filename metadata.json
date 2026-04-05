@@ -1,0 +1,7 @@
+{
+  "name": "苔花公约校园伙伴",
+  "description": "苔花如米小，也学牡丹开。一个致力于校园融合教育与无障碍环境建设的公益互动平台。",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

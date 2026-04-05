@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", "Noto Serif SC", serif;
+  --font-sans: "Inter", "Noto Sans SC", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-white antialiased;
+  }
+}
+
+.selection\:bg-emerald-100 ::selection {
+  background-color: #d1fae5;
+}
