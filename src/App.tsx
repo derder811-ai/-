@@ -727,7 +727,13 @@ export default function App() {
     if (activeTab === 'mall' && Object.keys(mallImages[role]).length === 0 && !isGeneratingImages) {
       const generateMallImages = async () => {
         setIsGeneratingImages(true);
-        const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
+        const apiKey = process.env.GEMINI_API_KEY;
+        if (!apiKey) {
+          console.warn("GEMINI_API_KEY is not set. Mall images will not be generated.");
+          setIsGeneratingImages(false);
+          return;
+        }
+        const ai = new GoogleGenAI({ apiKey });
         
         const k12Prompts: Record<number, string> = {
           1: "A high-quality product photo of a set of circular stickers for the 'Moss Covenant' charity project. The stickers feature small green moss flowers and the motto 'Moss flowers are as small as rice, yet they learn to bloom like peonies'. Aesthetic is minimalist, eco-friendly, emerald green and white colors.",
